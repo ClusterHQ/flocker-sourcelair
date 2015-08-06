@@ -62,6 +62,8 @@ $ cd _certs
 
 Now - edit the `cluster.yml` making sure you change the `private_key_path` to one that will be able to access the nodes.
 
+For example - my default public key has been added to all servers and so I edited the `private_key_path` to be `/Users/kai/.ssh/id_rsa`
+
 ## running the tools
 
 This assumes that you have exported a `$TOOLSDIR` variable pointing to the folder where the unofficial flocker tools have been cloned and the `install-zfs-with-ssh-keys` branch checked out.
