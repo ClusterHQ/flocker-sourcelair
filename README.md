@@ -9,7 +9,7 @@ An SSH key on your local machine that allows root access to the machines in the 
 
 To test this, the following command should login with no prompts:
 
-```
+```bash
 $ ssh root@node0.docker.gr
 ```
 
@@ -17,7 +17,7 @@ $ ssh root@node0.docker.gr
 
 To test this installed correctly:
 
-```
+```bash
 $ flocker-ca --version
 ```
 
@@ -25,7 +25,7 @@ $ flocker-ca --version
 
 To test this installed correctly:
 
-```
+```bash
 $ flocker-volumes --help
 ```
 
@@ -34,7 +34,7 @@ Until the [install-zfs-with-ssh-keys](https://github.com/ClusterHQ/unofficial-fl
 
 First - clone the tools repo and checkout the correct branch and export a variable pointing to where the python scripts live.
 
-```
+```bash
 $ git clone https://github.com/clusterhq/unofficial-flocker-tools.git
 $ cd unofficial-flocker-tools
 $ git checkout install-zfs-with-ssh-keys
@@ -53,7 +53,7 @@ You should copy the `cluster.yml.sample` file into a blank `_certs` folder and r
 
 Here is an example:
 
-```
+```bash
 $ cd ~/projects/flocker-sourcelair
 $ mkdir _certs
 $ cp cluster.yml.sample _certs/cluster.yml
@@ -68,7 +68,7 @@ For example - my default public key has been added to all servers and so I edite
 
 I had to run the following commands on each of the nodes before running the tools:
 
-```
+```bash
 $ sudo apt-get install -y software-properties-common python-software-properties linux-headers-generic build-essential
 ```
 
@@ -78,7 +78,7 @@ This assumes that you have exported a `$TOOLSDIR` variable pointing to the folde
 
 Also - it assumes that `pwd` is a `_certs` folder containing a `cluster.yml`.
 
-```
+```bash
 $ python $TOOLSDIR/install.py cluster.yml
 $ python $TOOLSDIR/deploy.py cluster.yml
 $ DOCKER_BINARY_URL=https://binaries.dockerproject.org/linux/amd64/docker-1.8.0-dev python $TOOLSDIR/plugin.py cluster.yml
@@ -88,7 +88,7 @@ $ DOCKER_BINARY_URL=https://binaries.dockerproject.org/linux/amd64/docker-1.8.0-
 
 Once everything is installed, you can run the following commands to check that it has worked:
 
-```
+```bash
 $ ssh root@node1.docker.gr
 node1$ docker run -ti --rm -v testvol:/data --volume-driver flocker busybox sh -c "echo hello > /data/file.txt"
 node1$ exit
@@ -103,7 +103,7 @@ This demonstrates data being written to node1 and then being read from node2 - a
 
 There is a Vagrant cluster that was used to test this setup against.  To get the cluster up and running:
 
-```
+```bash
 $ cd vagrant
 $ cp insecure_private_key /tmp/flocker-sourcelair-vagrant-private-key
 $ mkdir _certs
