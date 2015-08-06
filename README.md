@@ -30,7 +30,7 @@ $ flocker-volumes --help
 ```
 
 ## running the tools
-Until the `install-zfs-with-ssh-keys` branch is merged - I have used the unofficial tools repo manually.
+Until the [install-zfs-with-ssh-keys](https://github.com/ClusterHQ/unofficial-flocker-tools/tree/install-zfs-with-ssh-keys) branch is merged - I have used the unofficial tools repo manually.
 
 First - clone the tools repo and checkout the correct branch and export a variable pointing to where the python scripts live.
 
@@ -63,6 +63,14 @@ $ cd _certs
 Now - edit the `cluster.yml` making sure you change the `private_key_path` to one that will be able to access the nodes.
 
 For example - my default public key has been added to all servers and so I edited the `private_key_path` to be `/Users/kai/.ssh/id_rsa`
+
+## manual preparation
+
+I had to run the following commands on each of the nodes before running the tools:
+
+```
+$ sudo apt-get install software-properties-common python-software-properties
+```
 
 ## running the tools
 
