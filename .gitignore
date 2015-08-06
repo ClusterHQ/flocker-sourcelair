@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+build/Release
+_certs
+.vagrant

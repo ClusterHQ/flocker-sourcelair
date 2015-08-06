@@ -1,0 +1,48 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+load 'scripts.rb'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.define "node1" do |node1|
+    node1.vm.network :private_network, :ip => "172.16.81.250"
+    node1.vm.hostname = "node1"
+    node1.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+    node1.vm.provision :shell, inline: 
+      install_ssh_keys()
+  end
+
+  config.vm.define "node2" do |node2|
+    node2.vm.network :private_network, :ip => "172.16.81.251"
+    node2.vm.hostname = "node2"
+    node2.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+    node2.vm.provision :shell, inline: 
+      install_ssh_keys()
+  end
+
+  config.vm.define "node3" do |node3|
+    node3.vm.network :private_network, :ip => "172.16.81.252"
+    node3.vm.hostname = "node3"
+    node3.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+    node3.vm.provision :shell, inline: 
+      install_ssh_keys()
+  end
+
+ 
+
+end
