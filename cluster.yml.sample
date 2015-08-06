@@ -1,11 +1,11 @@
 cluster_name: sourcelair
 agent_nodes:
- - {public: node0.docker.gr, private: node0.docker.gr}
- - {public: node1.docker.gr, private: node1.docker.gr}
- - {public: node2.docker.gr, private: node2.docker.gr}
- - {public: node3.docker.gr, private: node3.docker.gr}
- - {public: node4.docker.gr, private: node4.docker.gr}
-control_node: node0.docker.gr
+ - {public: 46.16.191.30, private: 46.16.191.30}
+ - {public: 46.16.191.26, private: 46.16.191.26}
+ - {public: 46.16.191.28, private: 46.16.191.28}
+ - {public: 46.16.191.29, private: 46.16.191.29}
+ - {public: 159.8.55.116, private: 159.8.55.116}
+control_node: 46.16.191.30
 users:
  - sourcelair
 os: ubuntu
@@ -14,7 +14,7 @@ private_key_path: EDIT_THIS_VALUE
 agent_config:
   version: 1
   control-service:
-     hostname: node0.docker.gr
+     hostname: 46.16.191.30
      port: 4524
   dataset:
      backend: "zfs"
