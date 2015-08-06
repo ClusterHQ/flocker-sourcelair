@@ -69,7 +69,7 @@ For example - my default public key has been added to all servers and so I edite
 I had to run the following commands on each of the nodes before running the tools:
 
 ```
-$ sudo apt-get install software-properties-common python-software-properties
+$ sudo apt-get install -y software-properties-common python-software-properties linux-headers-generic build-essential
 ```
 
 ## running the tools
@@ -84,7 +84,22 @@ $ python $TOOLSDIR/deploy.py cluster.yml
 $ DOCKER_BINARY_URL=https://binaries.dockerproject.org/linux/amd64/docker-1.8.0-dev python $TOOLSDIR/plugin.py cluster.yml
 ```
 
-## testing with Vagrant
+## testing the installation
+
+Once everything is installed, you can run the following commands to check that it has worked:
+
+```
+$ ssh root@node1.docker.gr
+node1$ docker run -ti --rm -v testvol:/data --volume-driver flocker busybox sh -c "echo hello > /data/file.txt"
+node1$ exit
+$ ssh root@node2.docker.gr
+node2$ docker run -ti --rm -v testvol:/data --volume-driver flocker busybox sh -c "cat /data/file.txt"
+node2$ exit
+```
+
+This demonstrates data being written to node1 and then being read from node2 - all via a `docker run` command!
+
+## Vagrant version for development
 
 There is a Vagrant cluster that was used to test this setup against.  To get the cluster up and running:
 
