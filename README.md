@@ -47,14 +47,31 @@ $ python $TOOLSDIR/flocker_volumes.py --help
 
 ## cluster.yml
 
-This controls the cluster - you should copy a `cluster.yml` file into a blank folder and run the tools
+This controls the cluster - it contains the list of the nodes, Flocker config and points to the SSH key we will use to access the nodes.
 
-Now we move to our cluster folder (the one with a cluster.yml) and we run the tools manually:
+You should copy the `cluster.yml.sample` file into a blank `_certs` folder and run the tools.
+
+Here is an example:
 
 ```
-$ cd ~/projects/flocker-sourcelair/vagrant
-$ mkdir  
+$ cd ~/projects/flocker-sourcelair
+$ mkdir _certs
+$ cp cluster.yml.sample _certs/cluster.yml
+$ cd _certs
+```
+
+Now - edit the `cluster.yml` making sure you change the `private_key_path` to one that will be able to access the nodes.
+
+## running the tools
+
+This assumes that you have exported a `$TOOLSDIR` variable pointing to the folder where the unofficial flocker tools have been cloned and the `install-zfs-with-ssh-keys` branch checked out.
+
+Also - it assumes that `pwd` is a `_certs` folder containing a `cluster.yml`.
+
+```
+$ python $TOOLSDIR/install.py cluster.yml
 $ python $TOOLSDIR/deploy.py cluster.yml
+$ DOCKER_BINARY_URL=https://binaries.dockerproject.org/linux/amd64/docker-1.8.0-dev python $TOOLSDIR/plugin.py cluster.yml
 ```
 
 ## testing with Vagrant
@@ -70,16 +87,4 @@ $ vagrant up
 $ cd _certs
 ```
 
-Then we run the tools against this cluster.
-
-## running the tools
-
-This assumes that you have exported a `$TOOLSDIR` variable pointing to the folder where the unofficial flocker tools have been cloned and the `install-zfs-with-ssh-keys` branch checked out.
-
-Also - it assumes that `pwd` is a `_certs` folder containing a `cluster.yml`.
-
-```
-$ python $TOOLSDIR/install.py cluster.yml
-$ python $TOOLSDIR/deploy.py cluster.yml
-$ DOCKER_BINARY_URL=https://binaries.dockerproject.org/linux/amd64/docker-1.8.0-dev python $TOOLSDIR/plugin.py cluster.yml
-```
+Then run through the commands in the `running the tools` section.
