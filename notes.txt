@@ -10,3 +10,6 @@ curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/conf
 curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/datasets | docker run --rm -i realguess/jq:latest jq '.'
 
 curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE -XPOST --header "Content-type: application/json" -d '{"primary": "b392d504-20f2-4365-8e10-eb866ed61ec0", "maximum_size": 107374182400, "metadata": {"name": "example_dataset2"}}' $CONTROLSERVICE/v1/configuration/datasets
+
+docker run -ti --rm -v pears:/data --volume-driver flocker busybox sh -c "echo hello > /data/file.txt"
+docker run -ti --rm -v pears:/data --volume-driver flocker busybox sh -c "cat /data/file.txt"
