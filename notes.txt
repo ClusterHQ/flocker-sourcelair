@@ -3,8 +3,10 @@ export CERT_FILE=/etc/flocker/plugin.crt
 export CA_FILE=/etc/flocker/cluster.crt
 export CONTROLSERVICE=https://46.16.191.30:4523
 
-curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/nodes
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/nodes | docker run --rm -i realguess/jq:latest jq '.'
 
-curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/configuration/datasets
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/configuration/datasets | docker run --rm -i realguess/jq:latest jq '.'
 
-curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/datasets
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/datasets | docker run --rm -i realguess/jq:latest jq '.'
+
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE -XPOST --header "Content-type: application/json" -d '{"primary": "b392d504-20f2-4365-8e10-eb866ed61ec0", "maximum_size": 107374182400, "metadata": {"name": "example_dataset2"}}' $CONTROLSERVICE/v1/configuration/datasets
