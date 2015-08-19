@@ -1,0 +1,10 @@
+export KEY_FILE=/etc/flocker/plugin.key
+export CERT_FILE=/etc/flocker/plugin.crt
+export CA_FILE=/etc/flocker/cluster.crt
+export CONTROLSERVICE=https://46.16.191.30:4523
+
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/nodes
+
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/configuration/datasets
+
+curl --cacert $CA_FILE --cert $CERT_FILE --key $KEY_FILE $CONTROLSERVICE/v1/state/datasets
