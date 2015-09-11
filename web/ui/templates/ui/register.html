@@ -1,7 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
 <html>
-    <body>
-        <h1>
-            Hello Lori!
-        </h1>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+  </head>
+  <body>
+
+
+    <form action="#" class="registration-form">
+      <div class="">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email">
+      </div>
+      <div>
+        <label for="name">name</label>
+        <input type="text" id="username" placeholder="username">
+      </div>
+      <div>
+        <label for="pass">Password</label>
+        <input type="password" id="password" placeholder="Password">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
+  </body>
 </html>
