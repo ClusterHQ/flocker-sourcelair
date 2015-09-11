@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'djoser',
     'terminals.apps.TerminalsAppConfig',
+    'ui.apps.UIAppConfig',
 )
 
 MIDDLEWARE_CLASSES = (
