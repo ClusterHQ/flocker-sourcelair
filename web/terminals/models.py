@@ -29,6 +29,8 @@ class DockerTerminal(models.Model):
 
     @property
     def container_meta_data(self):
+        if hasattr(self, '_container_meta_data'):
+            return getattr(self, '_contianer_meta_data')
         if self.exited or not self.started:
             return {}
         try:
@@ -36,11 +38,12 @@ class DockerTerminal(models.Model):
             if not resp['State']['Running']:
                 self.exited = True
                 self.save()
+            setattr(self, '_contianer_meta_data', resp)
             return resp
-        except errors.NotFound as er:
+        except errors.NotFound:
             self.exited = True
             self.save()
-        except APIError:
+        except errors.APIError:
             return {}
 
     @property
@@ -58,3 +61,12 @@ class DockerTerminal(models.Model):
         return 'wss://{}/containers/{}/attach/ws'.format(
             settings.DOCKER_HOST, self.container_id
         )
+
+    def kill(self):
+        try:
+            settings.DOCKER_CLIENT.kill(container=self.container_id)
+        except errors.NotFound:
+            self.exited = True
+            self.save()
+        except errors.APIError:
+            return {}

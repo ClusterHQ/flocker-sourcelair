@@ -1,5 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework import generics, permissions, routers, viewsets
+from rest_framework.decorators import list_route
+from rest_framework.response import Response
 
 from terminals import models
 from terminals import serializers
@@ -22,6 +24,28 @@ class DockerTerminalViewSet(viewsets.ModelViewSet):
         Override to set the user.
         """
         serializer.save(owner=self.request.user)
+
+    @list_route(methods=['post'])
+    def get_or_create(self, request):
+        serializer = self.serializer_class(data=self.request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        queryset = self.get_queryset()
+        terminal = None
+        try:
+            terminal = queryset.get(started=True, exited=False)
+        except self.model.DoesNotExist:
+            pass
+        except self.model.MultipleObjectsReturned:
+            for terminal in queryset.all()[1:]:
+                terminal.kill()
+            terminal = queryset.first()
+        if terminal and terminal.container_meta_data and terminal.running:
+            serializer = self.serializer_class(terminal,
+                                               context={'request': request})
+            return Response(serializer.data)
+        self.perform_create(serializer=serializer)
+        return Response(serializer.data)
 
 
 router = routers.DefaultRouter(trailing_slash=True)
