@@ -11,3 +11,4 @@ build/Release
 _certs
 .vagrant
 *.pyc
+db.sqlite3

@@ -18,6 +18,11 @@ $('form.registration-form').on('submit', function() {
     url   : url,
     type  : 'POST',
     data  : data,
+  }).done(function(data, textStatus, req) {
+      // Place code here to redirect to /terminal
+  }).fail(function(req, textStatus, errorThrown) {
+      // Place code here to show error from req.responseJSON object
+      // Form key: error
   });
 
   return false;
