@@ -4,29 +4,85 @@
   <head>
     <meta charset="utf-8">
     <title>Test</title>
-  </head>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style>
+
+			.brand {
+			font-size:25px;
+			font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+			font-weight: 1400;
+			}
+
+			html, .navbar {
+    background-image: url("bower_components/bootstrap/dist/img/bg_light.png");
+    background-repeat: repeat;
+			}
+
+			.signpar {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 50px;
+		line-height: 30px;
+		color: #3d4242;
+			}
+
+			.container {
+		position: absolute;
+	  top: 50%;
+	  left:50%;
+	  transform: translate(-50%,-50%);
+			}
+
+       .space {
+     margin-top : 10px;
+      }
+		</style>
+	</head>
   <body>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<div class="row">
+				<a class="btn navbar-btn btn-danger pull-right" href="login/">Login <i class="fa fa-sign-in"></i></a>
+				<div class="navbar-brand"><p class="brand"> Xterm.js >_  <i class="fa fa-terminal"></i></p>
+				</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 error-warnings">
+					 <h1 class="signpar"><p class="text-center">Sign up</p></h1>
+							<hr>
+					<form action="#" class="registration-form">
+            <div class="has-feedback"> <!-- in class add form-group for spacing between input boxes -->
+							<label for="email" class="sr-only">Email</label>
+							<input type="text" id="email" class="form-control input-md" placeholder="Email">
+							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						</div>
 
-    <form action="#" class="registration-form">
-      <div class="">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Email">
-      </div>
-      <div>
-        <label for="name">name</label>
-        <input type="text" id="username" placeholder="username">
-      </div>
-      <div>
-        <label for="pass">Password</label>
-        <input type="password" id="password" placeholder="Password">
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+						<div class="has-feedback">
+							<label for="username" class="sr-only">Name</label>
+							<input type="Name" id="username" class="form-control input-md" placeholder="Name">
+							<span class="glyphicon glyphicon-user form-control-feedback"></span>
+						</div>
 
+						<div class="form-group has-feedback">
+							<label for="password" class="sr-only">Password</label>
+							<input type="password" id="password" class="form-control input-md" placeholder="Password">
+							<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+						</div>
 
-
+						<button type="submit" class="btn btn-success btn-block btn-register">
+							Sign up
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
+      <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>

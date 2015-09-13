@@ -1,18 +1,17 @@
 $('form.registration-form').on('submit', function() {
-  console.log('Checked');
   var form = $(this);
   var url = '/api/auth/register/';
   var data = {};
+	var errCondition = false;
 
-  //Loop through and grab only the value of 'id ' attr
+  //Loop through and grab only the value of the attribute id.
   form.find('[id]').each(function() {
-    var element = $(this); //this is a reference or the object that contains the elements that ref.find found
+    var element = $(this);
     var idValue = element.attr('id');
     var value = element.val();
 
     data[idValue] = value;
   });
-  console.log(data);
 
   $.ajax({
     url   : url,
@@ -20,10 +19,18 @@ $('form.registration-form').on('submit', function() {
     data  : data,
   }).done(function(data, textStatus, req) {
       // Place code here to redirect to /terminal
+      window.location.href = '/terminal';
   }).fail(function(req, textStatus, errorThrown) {
       // Place code here to show error from req.responseJSON object
       // Form key: error
+			if(errCondition == true)
+				$('div.alert').remove();
+      var JSONresponse = req.responseJSON;
+      for( var key in JSONresponse){
+        var warning = '<div class="alert alert-warning alert-block space fade in"><a href="#" class="close" data-dismiss="alert">&times;</a><strong>Form ' + key + ' error :</strong> ' + JSONresponse[key] + '</div>';
+        $('.error-warnings').append(warning);
+      }
   });
-
-  return false;
+	errCondition = true;
+  return false; //Prevent default.
 });
