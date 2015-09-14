@@ -111,7 +111,7 @@ STATIC_URL = '/static/'
 # Docker settings
 
 import docker
-DOCKER_HOST = 'node0.docker.gr:11235'
+DOCKER_HOST = 'node0.docker.gr:11236'
 DOCKER_CLIENT = docker.Client(DOCKER_HOST)
 
 # DRF settings
@@ -134,3 +134,23 @@ DJOSER = {
     'ACTIVATION_URL': '#/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': False,
 }
+
+
+# Random hash per project
+
+RANDOM_HASH = None
+RANDOM_HASH_FILE = None
+if os.path.exists('.hash'):
+    with open('.hash', 'r') as hash_file:
+        RANDOM_HASH = hash_file.read()
+
+if not RANDOM_HASH:
+    import random
+    import string
+
+    RANDOM_HASH = token = ''.join(
+        random.choice(string.ascii_lowercase + string.digits)
+        for _ in range(16)
+    )
+    with open('.hash', 'w+') as hash_file:
+        hash_file.write(RANDOM_HASH)

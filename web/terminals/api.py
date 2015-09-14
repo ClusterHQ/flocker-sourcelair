@@ -30,19 +30,20 @@ class DockerTerminalViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=self.request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
-        queryset = self.get_queryset()
+        queryset = self.get_queryset().filter(started=True, exited=False)
         terminal = None
         try:
-            terminal = queryset.get(started=True, exited=False)
+            terminal = queryset.get()
         except self.model.DoesNotExist:
             pass
         except self.model.MultipleObjectsReturned:
             for terminal in queryset.all()[1:]:
-                terminal.kill()
+                terminal.kill(raise_exception=False)
             terminal = queryset.first()
         if terminal and terminal.container_meta_data and terminal.running:
-            serializer = self.serializer_class(terminal,
-                                               context={'request': request})
+            serializer = self.serializer_class(
+                terminal, context={'request': request}
+            )
             return Response(serializer.data)
         self.perform_create(serializer=serializer)
         return Response(serializer.data)
