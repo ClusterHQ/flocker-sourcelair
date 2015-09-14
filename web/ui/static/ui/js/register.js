@@ -2,7 +2,7 @@ $('form.registration-form').on('submit', function() {
   var form = $(this);
   var url = '/api/auth/register/';
   var data = {};
-	var errCondition = false;
+  var errCondition = false;
 
   //Loop through and grab only the value of the attribute id.
   form.find('[id]').each(function() {
@@ -23,14 +23,14 @@ $('form.registration-form').on('submit', function() {
   }).fail(function(req, textStatus, errorThrown) {
       // Place code here to show error from req.responseJSON object
       // Form key: error
-			if(errCondition == true)
-				$('div.alert').remove();
+	  if(errCondition == true)
+		$('div.alert').remove();
       var JSONresponse = req.responseJSON;
       for( var key in JSONresponse){
         var warning = '<div class="alert alert-warning alert-block space fade in"><a href="#" class="close" data-dismiss="alert">&times;</a><strong>Form ' + key + ' error :</strong> ' + JSONresponse[key] + '</div>';
         $('.error-warnings').append(warning);
       }
   });
-	errCondition = true;
+  errCondition = true;
   return false; //Prevent default.
 });
