@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <title>Sign up</title>
       <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<style>
@@ -15,8 +15,8 @@
 			}
 
 			html, .navbar {
-    background-image: url("bower_components/bootstrap/dist/img/bg_light.png");
-    background-repeat: repeat;
+			background-image: url({% static 'ui/img/bg_light.png' %});
+    		background-repeat: repeat;
 			}
 
 			.signpar {
@@ -42,8 +42,8 @@
 		<div class="navbar navbar-default">
 			<div class="container">
 				<div class="row">
-				<a class="btn navbar-btn btn-danger pull-right" href="login/">Login <i class="fa fa-sign-in"></i></a>
-				<div class="navbar-brand"><p class="brand"> Xterm.js >_  <i class="fa fa-terminal"></i></p>
+				<a class="btn navbar-btn btn-danger pull-right" href="login/">Login <i class="glyphicon glyphicon-log-in"></i></a>
+				<div class="navbar-brand"><p class="brand"> Xterm.js >_</p>
 				</div>
 				</div>
 			</div>
