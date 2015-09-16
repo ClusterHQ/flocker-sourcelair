@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Login</title>
+		 <!-- Latest compiled and minified CSS -->
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+		<style>
+
+			.brand {
+		font-size:25px;;
+			}
+
+			html, .navbar {
+	    background-image: url('ui/img/bg_light.png');
+	    background-repeat: repeat;
+			}
+
+			.signpar {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 50px;
+		line-height: 30px;
+		color: #3d4242;
+			}
+
+			.container {
+		position: absolute;
+		top: 50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+			}
+
+		</style>
+  </head>
+	<body>
+		<div class='navbar navbar-default'>
+			<div class='container'>
+				<div class='row'>
+					<a class='btn navbar-btn btn-danger pull-right' href='{% static 'register.html' %}'>Login <i class='glyphicon glyphicon-log-in'></i></a>
+				<div class='navbar-brand'><p class='brand'>Xterm.js >_</p>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 '>
+					 <h1 class='signpar'><p class='text-center'>Login</p></h1>
+							<hr>
+					<form class='login-form'>
+						<div class='has-feedback form-group'>
+							<label for='username' class='sr-only'>Username</label>
+							<input type='text' id='username' class='form-control input-md' placeholder='Username'>
+							<span class='glyphicon glyphicon-user form-control-feedback'></span>
+						</div>
+
+						<div class='has-feedback form-group'>
+							<label for='password' class='sr-only'>Password</label>
+							<input type='password' id='password' class='form-control input-md' placeholder='Password'>
+							<span class='glyphicon glyphicon-asterisk form-control-feedback'></span>
+						</div>
+
+						<button type='submit' class='btn btn-success btn-block'>
+							Login
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.js'></script>
+		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+		<script type='text/javascript' src='{% static 'ui/js/login.js' %}'></script>
+  </body>
+</html>

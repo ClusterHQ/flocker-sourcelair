@@ -20,17 +20,17 @@
 			}
 
 			.signpar {
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		font-size: 50px;
-		line-height: 30px;
-		color: #3d4242;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size: 50px;
+			line-height: 30px;
+			color: #3d4242;
 			}
 
 			.container {
-		position: absolute;
-	  top: 50%;
-	  left:50%;
-	  transform: translate(-50%,-50%);
+			position: absolute;
+			top: 50%;
+			left:50%;
+			transform: translate(-50%,-50%);
 			}
 
        .space {
@@ -42,7 +42,7 @@
 		<div class="navbar navbar-default">
 			<div class="container">
 				<div class="row">
-				<a class="btn navbar-btn btn-danger pull-right" href="login/">Login <i class="glyphicon glyphicon-log-in"></i></a>
+				<a class="btn navbar-btn btn-danger pull-right" href="{% static 'login.html' %}">Login <i class="glyphicon glyphicon-log-in"></i></a>
 				<div class="navbar-brand"><p class="brand"> Xterm.js >_</p>
 				</div>
 				</div>
@@ -54,8 +54,8 @@
 				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 error-warnings">
 					 <h1 class="signpar"><p class="text-center">Sign up</p></h1>
 							<hr>
-					<form action="#" class="registration-form">
-            <div class="has-feedback"> <!-- in class add form-group for spacing between input boxes -->
+					<form class="registration-form">
+            			<div class="has-feedback">
 							<label for="email" class="sr-only">Email</label>
 							<input type="text" id="email" class="form-control input-md" placeholder="Email">
 							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -81,8 +81,8 @@
 			</div>
 		</div>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
       <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
   </body>
 </html>
