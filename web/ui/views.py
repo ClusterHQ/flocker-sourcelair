@@ -5,3 +5,6 @@ def register_view(request):
 
 def login_view(request):
     return render(request, 'ui/login.html')
+
+def terminal_view(request):
+    return render(request, 'ui/terminal.html')
