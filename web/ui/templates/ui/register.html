@@ -1,88 +1,58 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Sign up</title>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<style>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign up</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="row">
+                    <a class="btn navbar-btn btn-danger pull-right" href="{% static 'ui/login/login.html' %}">Login <i class="glyphicon glyphicon-log-in"></i></a>
+                    <div class="navbar-brand"><p class="brand"> Xterm.js >_</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			.brand {
-				font-size:25px;
-				font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-				font-weight: 1400;
-			}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 error-warnings">
+                    <h1 class="signpar"><p class="text-center">Sign up</p></h1>
+                    <hr>
+                    <form class="registration-form">
+                        <div class="has-feedback">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="text" id="email" class="form-control input-md" placeholder="Email">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
 
-			html, .navbar {
-				background-image: url({% static 'ui/img/bg_light.png' %});
-				background-repeat: repeat;
-			}
+                        <div class="has-feedback">
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="Name" id="username" class="form-control input-md" placeholder="Username">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
 
-			.signpar {
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-				font-size: 50px;
-				line-height: 30px;
-				color: #3d4242;
-			}
+                        <div class="form-group has-feedback">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" id="password" class="form-control input-md" placeholder="Password">
+                            <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                        </div>
 
-			.container {
-				position: absolute;
-				top: 50%;
-				left:50%;
-				transform: translate(-50%,-50%);
-			}
-
-			.space {
-				margin-top : 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="navbar navbar-default">
-			<div class="container">
-				<div class="row">
-					<a class="btn navbar-btn btn-danger pull-right" href="{% static 'ui/login/login.html' %}">Login <i class="glyphicon glyphicon-log-in"></i></a>
-					<div class="navbar-brand"><p class="brand"> Xterm.js >_</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 error-warnings">
-					<h1 class="signpar"><p class="text-center">Sign up</p></h1>
-					<hr>
-					<form class="registration-form">
-						<div class="has-feedback">
-							<label for="email" class="sr-only">Email</label>
-							<input type="text" id="email" class="form-control input-md" placeholder="Email">
-							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-						</div>
-
-						<div class="has-feedback">
-							<label for="username" class="sr-only">Username</label>
-							<input type="Name" id="username" class="form-control input-md" placeholder="Username">
-							<span class="glyphicon glyphicon-user form-control-feedback"></span>
-						</div>
-
-						<div class="form-group has-feedback">
-							<label for="password" class="sr-only">Password</label>
-							<input type="password" id="password" class="form-control input-md" placeholder="Password">
-							<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
-						</div>
-
-						<button type="submit" class="btn btn-success btn-block btn-register">
-							Sign up
-						</button>
-					</form>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
-	</body>
+                        <button type="submit" class="btn btn-success btn-block btn-register">
+                            Sign up
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'ui/css/common.css' %}">
+    </body>
 </html>
