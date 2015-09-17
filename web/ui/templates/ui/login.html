@@ -1,6 +1,5 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang='en'>
   <head>
     <meta charset='utf-8'>
@@ -15,9 +14,9 @@
 		font-size:25px;;
 			}
 
-			html, .navbar {
-	    background-image: url('ui/img/bg_light.png');
-	    background-repeat: repeat;
+		/* 	html, .navbar {
+				    background-image: url('ui/img/bg_light.png');
+				    background-repeat: repeat; */
 			}
 
 			.signpar {
@@ -48,7 +47,7 @@
 		</div>
 		<div class='container'>
 			<div class='row'>
-				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 '>
+				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 error-warnings'>
 					 <h1 class='signpar'><p class='text-center'>Login</p></h1>
 							<hr>
 					<form class='login-form'>
@@ -71,21 +70,8 @@
 				</div>
 			</div>
 		</div>
-		<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.js'></script>
+		<script src='//code.jquery.com/jquery-2.1.4.js'></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-		<script type='text/javascript' src='{% static 'ui/js/login.js' %}'></script>
+		<script type='text/javascript' src="{% static 'ui/js/login.js' %}"></script>
   </body>
 </html>
-=======
-<html>
-<body>
-    <h1>
-        Enter Login code here
-    </h1>
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="{% static 'ui/js/register.js' %}"></script>
-      <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
-</html>
->>>>>>> 7cc8a193d3c8104eefc3d490cad1236c0dd770af
