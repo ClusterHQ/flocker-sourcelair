@@ -12,3 +12,4 @@ _certs
 .vagrant
 *.pyc
 db.sqlite3
+.hash
