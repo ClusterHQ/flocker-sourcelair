@@ -6,10 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Terminal</title>
+
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/src/xterm.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'ui/js/vendor/xterm.js/src/xterm.css' %}" />
     </head>
     <body>
         <h1>
             Please put a terminal here :)
         </h1>
+
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/addons/attach/attach.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ui/js/terminal.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'ui/css/terminal.css' %}" />
     </body>
 </html>
