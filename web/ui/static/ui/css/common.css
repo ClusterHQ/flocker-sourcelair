@@ -20,3 +20,7 @@ html, .navbar {
     left:50%;
     transform: translate(-50%,-50%);
 }
+
+.space {
+	margin-top : 10px;
+}
