@@ -24,3 +24,12 @@ html, .navbar {
 .space {
 	margin-top : 10px;
 }
+
+.form-control {
+	font-size: 15px;
+}
+
+.btn-block {
+	padding: 7px;
+	font-size: 18px;
+}
