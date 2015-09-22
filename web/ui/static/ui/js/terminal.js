@@ -10,8 +10,8 @@ term.prompt = function () {
   term.write('\r\n' + shellprompt);
 };
 
-term.writeln('Welcome to xterm.js');
-term.writeln('Just type some keys in the prompt below.');
+term.writeln('Welcome to flocker-sourcelair project!');
+term.writeln('Here is your fully functional terminal, have fun.');
 term.writeln('');
 term.prompt();
 
@@ -31,3 +31,7 @@ term.on('key', function (key, ev) {
     term.write(key);
   }
 });
+
+(function(){
+	term.toggleFullscreen();
+})();
