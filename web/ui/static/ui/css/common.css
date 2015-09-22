@@ -9,7 +9,7 @@ html, .navbar {
 
 .signpar {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 50px;
+    font-size: 60px;
     line-height: 30px;
     color: #3d4242;
 }
@@ -25,11 +25,57 @@ html, .navbar {
 	margin-top : 10px;
 }
 
-.form-control {
-	font-size: 15px;
+.btn-block {
+	padding: 8px;
+	font-size: 18px;
+	border:1.5px;
 }
 
-.btn-block {
-	padding: 7px;
-	font-size: 18px;
+.emailStyle {
+	border:1.5px;
+	border-bottom: 0px;
+	height:40px;
+	font-size:16px;
+	border-radius:0px;
+}
+
+.userStyle {
+	border:1.5px;
+	border-top: 0px;
+	border-bottom: 0px;
+	height:40px;
+	font-size:16px;
+	border-radius:0px;
+
+}
+
+.passStyle {
+	border:1.5px;
+	border-top: 0px;
+	height:40px;
+	font-size:16px;
+	border-radius:0px;
+
+}
+
+.registration-form input[type="text"] {
+    	-webkit-box-shadow: none;
+}
+
+.registration-form input[type="email"] {
+    	-webkit-box-shadow: none;
+}
+
+.registration-form input[type="password"] {
+    	-webkit-box-shadow: none;
+}
+
+.login-form input[type="text"] {
+		-webkit-box-shadow: none;
+
+}
+
+.login-form input[type="password"] {
+		-webkit-box-shadow: none;
+
 }
