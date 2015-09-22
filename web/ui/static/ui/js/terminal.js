@@ -12,7 +12,13 @@ term.prompt = function () {
 
 term.writeln('Welcome to flocker-sourcelair project!');
 term.writeln('Here is your fully functional terminal, have fun.');
-term.writeln('');
+term.writeln(" _____                          _           _      \r\n"+
+"/  ___|                        | |         (_)     \r\n"+
+"\\ `--.  ___  _   _ _ __ ___ ___| |     __ _ _ _ __ \r\n"+
+" `--. \\/ _ \\| | | | '__/ __/ _ \\ |    / _` | | '__|\r\n"+
+"/\\__/ / (_) | |_| | | | (_|  __/ |___| (_| | | |   \r\n"+
+"\\____/ \\___/ \\__,_|_|  \\___\\___\\_____/\\__,_|_|_|   \r\n"+
+"                                                   \r\n");
 term.prompt();
 
 term.on('key', function (key, ev) {
