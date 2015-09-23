@@ -1,22 +1,31 @@
 var terminalContainer = document.getElementById('terminal-container'),
-    term = new Terminal(),
-    shellprompt = '> ';
+    term = new Terminal();
 
 term.open(terminalContainer);
 term.fit();
 
-term.writeln('Welcome to flocker-sourcelair project!');
-term.writeln('Here is your fully functional terminal, have fun.');
-term.writeln(" _____                          _           _      \r\n"+
-             "/  ___|                        | |         (_)     \r\n"+
-             "\\ `--.  ___  _   _ _ __ ___ ___| |     __ _ _ _ __ \r\n"+
-             " `--. \\/ _ \\| | | | '__/ __/ _ \\ |    / _` | | '__|\r\n"+
-             "/\\__/ / (_) | |_| | | | (_|  __/ |___| (_| | | |   \r\n"+
-             "\\____/ \\___/ \\__,_|_|  \\___\\___\\_____/\\__,_|_|_|   \r\n"+
-             "                                                   \r\n");
+function getContainer() {
+    var url = '/api/terminals/get_or_create/',
+        data = {container_image: 'ubuntu'};
 
+    return $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+    }).done(function(data, textStatus, req) {
+        attachToTerminal(data.attach_url);
+    }).fail(function(req, textStatus, errorThrown) {
+        // Notify user that we have a problem.
+    });
 
+}
+
+function attachToTerminal(webSocketUrl) {
+    var params = '?logs=1&stream=1',
+        ws = new WebSocket(webSocketUrl + params);
+    term.attach(ws, true, true);
+}
 
 (function(){
-    term.toggleFullscreen();
+    getContainer();
 })();
