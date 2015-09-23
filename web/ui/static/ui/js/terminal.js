@@ -1,4 +1,3 @@
-console.log('Add terminal related code here!');
 var terminalContainer = document.getElementById('terminal-container'),
     term = new Terminal(),
     shellprompt = '> ';
@@ -39,5 +38,5 @@ term.on('key', function (key, ev) {
 });
 
 (function(){
-	term.toggleFullscreen();
+    term.toggleFullscreen();
 })();

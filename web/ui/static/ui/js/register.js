@@ -23,14 +23,12 @@ $('form.registration-form').on('submit', function() {
   }).fail(function(req, textStatus, errorThrown) {
       // Place code here to show error from req.responseJSON object
       // Form key: error
-	  if(errCondition == true)
-		$('div.alert').remove();
+      $('div.alert').remove();//In case of previous warning, remove the warning(div) so that the new one appears.
       var JSONresponse = req.responseJSON;
       for( var key in JSONresponse){
         var warning = '<div class="alert alert-warning alert-block space fade in"><a href="#" class="close" data-dismiss="alert">&times;</a><strong>Form ' + key + ' error :</strong> ' + JSONresponse[key] + '</div>';
         $('.error-warnings').append(warning);
       }
   });
-  errCondition = true;
   return false; //Prevent default.
 });
