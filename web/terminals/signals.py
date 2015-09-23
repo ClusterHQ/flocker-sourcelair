@@ -15,10 +15,9 @@ def terminal_pre_save(sender, instance, *args, **kwargs):
         instance.container_image, command=command, tty=True, stdin_open=True,
         volumes=['/data'],
         host_config=docker.utils.create_host_config(binds={
-                'user_data_{}'.format(instance.owner.pk): {
-                    'bind': '/data',
-                    'mode': 'rw',
-                },
+                '{}_user_data_{}'.format(
+                    settings.RANDOM_HASH, instance.owner.pk
+                ): {'bind': '/data', 'mode': 'rw',},
             }),
         volume_driver='flocker',
         working_dir='/data',

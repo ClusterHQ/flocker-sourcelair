@@ -62,11 +62,15 @@ class DockerTerminal(models.Model):
             settings.DOCKER_HOST, self.container_id
         )
 
-    def kill(self):
+    def kill(self, raise_exception=True):
         try:
             settings.DOCKER_CLIENT.kill(container=self.container_id)
         except errors.NotFound:
             self.exited = True
             self.save()
+            if raise_exception:
+                raise
         except errors.APIError:
+            if raise_exception:
+                raise
             return {}
