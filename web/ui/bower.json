@@ -1,0 +1,6 @@
+{
+    "name": "flocker-sourcelair-terminals",
+    "dependencies": {
+        "xterm.js": "0.30"
+    }
+}

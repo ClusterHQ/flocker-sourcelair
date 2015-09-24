@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Terminal</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/src/xterm.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'ui/js/vendor/xterm.js/src/xterm.css' %}" />
+        <link rel="stylesheet" href="{% static 'ui/js/vendor/xterm.js/addons/fullscreen/fullscreen.css' %}"/>
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/addons/attach/attach.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/addons/fit/fit.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/addons/fullscreen/fullscreen.js' %}"></script>
+    </head>
+    <body>
+        <div class="alert alert-info alert-block space fade in" id="container-info">Please wait to attach websocket...</div>
+        <div id="terminal-container"></div>
+        <script src="//code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{% static 'ui/js/terminal.js' %}" defer ></script>
+        <link rel="stylesheet" href="{% static 'ui/css/terminal.css' %}" />
+    </body>
+</html>

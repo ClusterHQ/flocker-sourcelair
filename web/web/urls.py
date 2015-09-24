@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/auth/', include('djoser.urls.authtoken')),
     url(r'^api/', include('terminals.api')),
+    url(r'^', include('ui.urls')),
 ]
