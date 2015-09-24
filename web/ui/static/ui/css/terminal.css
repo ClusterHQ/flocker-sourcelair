@@ -3,7 +3,7 @@
  */
 body {
     font-family: helvetica, sans-serif, arial;
-    font-size: 1em;
+    font-size: 16px;
     color: #111;
 }
 
@@ -26,4 +26,14 @@ h1 {
 
 #terminal-container .terminal .terminal-cursor {
     background-color: #fafafa;
+}
+
+.alert-info {
+    margin: auto;
+    margin-top: 15px;
+    width: 960px;
+}
+
+.glyphicon-fullscreen {
+    font-size: 25px;
 }

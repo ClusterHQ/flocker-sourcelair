@@ -14,9 +14,9 @@ $('form.login-form').on('submit', function() {
     });
 
     $.ajax({
-        url   : url,
-        type  : 'POST',
-        data  : data,
+        url: url,
+        type: 'POST',
+        data: data,
     }).done(function(data, textStatus, req) {
         // Place code here to redirect to /terminal
         window.location.href = '/terminal';

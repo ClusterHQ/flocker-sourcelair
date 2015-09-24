@@ -32,9 +32,13 @@ function displayContainerInfo(info) {
         ip = info.Node.IP,
         alert = $('#container-info');
 
-    alert.html('Container created at node: <strong>' + name + '</strong> with IP: <strong>' + ip + '</strong>.');
+    alert.html('Container created at node: <strong>' + name + '</strong> with IP: <strong>' + ip + '</strong>.' + '<a href="#" id="full-icon" onclick="makeFullScreen()" <i class="pull-right glyphicon glyphicon-fullscreen"></i></a>');
 }
 
 (function(){
     getContainer();
 })();
+
+function makeFullScreen(){
+    term.toggleFullscreen();
+};

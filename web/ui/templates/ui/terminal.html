@@ -16,8 +16,8 @@
         <script type="text/javascript" src="{% static 'ui/js/vendor/xterm.js/addons/fullscreen/fullscreen.js' %}"></script>
     </head>
     <body>
+        <div class="alert alert-info alert-block space fade in" id="container-info">Please wait to attach websocket...</div>
         <div id="terminal-container"></div>
-        <div class="alert alert-info alert-block fade in" id="container-info" display="none"><a href="#" class="close" data-dismiss="alert">&times;</a></div>
         <script src="//code.jquery.com/jquery-2.1.4.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{% static 'ui/js/terminal.js' %}" defer ></script>
