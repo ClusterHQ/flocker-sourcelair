@@ -16,10 +16,9 @@ function getContainer() {
         attachToTerminal(data.attach_url);
         displayContainerInfo(data.container_meta_data);
     }).fail(function(req, textStatus, errorThrown) {
-        console.log(errorThrown);
         alert = $('#container-info');
-        alert.addClass('alert-danger').removeClass('alert-info')
-        alert.html('There was an error!')        
+        alert.addClass('alert-danger').removeClass('alert-info');
+        alert.html('There was an error!');
     });
 
 }
