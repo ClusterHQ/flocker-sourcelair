@@ -28,9 +28,9 @@ h1 {
     background-color: #fafafa;
 }
 
-.alert-info {
+.alert {
     margin: auto;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 960px;
 }
 
