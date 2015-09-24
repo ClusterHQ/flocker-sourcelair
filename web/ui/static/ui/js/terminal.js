@@ -16,7 +16,10 @@ function getContainer() {
         attachToTerminal(data.attach_url);
         displayContainerInfo(data.container_meta_data);
     }).fail(function(req, textStatus, errorThrown) {
-        // Notify user that we have a problem.
+        console.log(errorThrown);
+        alert = $('#container-info');
+        alert.addClass('alert-danger').removeClass('alert-info')
+        alert.html('There was an error!')        
     });
 
 }
@@ -31,8 +34,10 @@ function displayContainerInfo(info) {
     var name = info.Node.Name,
         ip = info.Node.IP,
         alert = $('#container-info');
+    
+    var htmlMsg = 'Container created at node: <strong>' + name + '</strong> with IP: <strong>' + ip + '</strong>.' + '<a href="#" id="full-icon" onclick="makeFullScreen()" <i class="pull-right glyphicon glyphicon-fullscreen"></i></a>';
 
-    alert.html('Container created at node: <strong>' + name + '</strong> with IP: <strong>' + ip + '</strong>.' + '<a href="#" id="full-icon" onclick="makeFullScreen()" <i class="pull-right glyphicon glyphicon-fullscreen"></i></a>');
+    alert.html(htmlMsg);
 }
 
 (function(){
