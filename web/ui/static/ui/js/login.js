@@ -19,6 +19,7 @@ $('form.login-form').on('submit', function() {
         data: data,
     }).done(function(data, textStatus, req) {
         // Place code here to redirect to /terminal
+        localStorage.setItem('auth_token', data.auth_token);
         window.location.href = '/terminal';
     }).fail(function(req, textStatus, errorThrown) {
         // Place code here to show error from req.responseJSON object
@@ -35,5 +36,6 @@ $('form.login-form').on('submit', function() {
         }
         $('.error-warnings').append(errorThrownMsg);
     });
+
     return false; //Prevent default.
 });

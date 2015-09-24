@@ -12,6 +12,10 @@ function getContainer() {
         url: url,
         type: 'POST',
         data: data,
+        beforeSend: function(xhr) {
+            var token = localStorage.getItem('auth_token');
+            xhr.setRequestHeader('Authorization', 'Token ' + token);
+        },
     }).done(function(data, textStatus, req) {
         attachToTerminal(data.attach_url);
         displayContainerInfo(data.container_meta_data);

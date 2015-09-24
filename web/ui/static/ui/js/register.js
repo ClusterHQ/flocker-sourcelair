@@ -19,7 +19,7 @@ $('form.registration-form').on('submit', function() {
     data  : data,
   }).done(function(data, textStatus, req) {
       // Place code here to redirect to /terminal
-      window.location.href = '/terminal';
+      window.location.href = '/login/';
   }).fail(function(req, textStatus, errorThrown) {
       // Place code here to show error from req.responseJSON object
       // Form key: error
