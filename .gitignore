@@ -10,3 +10,6 @@ coverage
 build/Release
 _certs
 .vagrant
+*.pyc
+db.sqlite3
+.hash

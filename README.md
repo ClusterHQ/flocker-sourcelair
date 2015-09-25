@@ -1,6 +1,43 @@
 sourcelair-flocker
 ==================
 
+Getting started with the demo web service
+-----------------------------------------
+
+## Using a SourceLair Blueprint
+
+If you'd like to get started right away, just use the following SourceLair
+Blueprint - https://www.sourcelair.com/blueprints/sourcelair/flocker-sourcelair
+
+## Configuring the web service
+
+1. Set up the database
+Just run `./manage.py migrate` while on the `web` subdirectory to set up your
+database. If you're on SourceLair, open Command Palette using
+`Ctrl + Shift + P` or `Cmd` on a Mac and then run the Migrate command.
+
+2. Point to a different cluster
+If you'd like to point to a different cluster than the default one that we
+have already set up, you can change the `DOCKER_HOST` setting in `settings.py`
+file.
+
+## Seeing everything in action
+
+1. Point your browser to the `/` and register with a new account
+  * If you're on SourceLair, access your public URL, accessible from the eye-like icon in the side-bar
+2. You will be autimatically redirected to `/terminal/` and will see the terminal running
+3. Create some files
+4. Note the server that the terminal was spawned, just below it
+5. Press `Ctrl + D` to close the terminal
+6. Use the refresh terminal button to get a new one
+7. Note the new server that was used this time
+  * If it spawned in the same server as before, just repeat steps 5-7
+8. Look for your files
+9. They're there, waiting for you!
+
+Cluster installation instructions
+---------------------------------
+
 Notes for installing the 5 node sourcelair cluster.
 
 ## pre-requisites
